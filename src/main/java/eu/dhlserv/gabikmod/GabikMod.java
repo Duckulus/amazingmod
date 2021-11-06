@@ -4,15 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.apache.commons.io.FileUtils;
 import org.lwjgl.opengl.Display;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -33,7 +32,7 @@ public class GabikMod {
         return instance;
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
@@ -83,7 +82,7 @@ public class GabikMod {
     private boolean wasInactive;
 
     @SubscribeEvent
-    public void onTick(ClientTickEvent e) {
+    public void onTick(TickEvent.ClientTickEvent e) {
         if (Minecraft.getMinecraft().theWorld == null) {
             if (wasInactive) {
                 Minecraft.getMinecraft().gameSettings.limitFramerate = prevFpslimit;

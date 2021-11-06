@@ -2,12 +2,10 @@ package eu.dhlserv.gabikmod;
 
 import java.util.Map;
 
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
-@MCVersion("1.7.10")
-@SortingIndex(1001)
+@IFMLLoadingPlugin.MCVersion("1.8.8")
+@IFMLLoadingPlugin.SortingIndex(1001)
 public class FMLLoadingPlugin implements IFMLLoadingPlugin {
 
     @Override
